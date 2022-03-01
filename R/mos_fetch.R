@@ -17,7 +17,7 @@ install.load.package <- function(x) { # Automate installs & load packages from C
 }
 
 package_vec <- c( # vector of package/library names - note: CRAN-dependent (no GitHub, local, &c.)
-  "Rcurl",
+  "RCurl",
   "Rcompadre"
 )
 
