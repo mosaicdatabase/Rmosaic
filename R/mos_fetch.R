@@ -37,8 +37,7 @@ mosaic_base <- setClass("mosaic_base",
                           dispclass = "mosaic_meta",
                           volancy = "mosaic_meta",
                           aquadep = "mosaic_meta",
-                          cmaClimate = "data.frame",
-                          cmpClimate = "data.frame",
+                          climate = "data.frame",
                           phyloTree = "list")
   )
 
@@ -59,10 +58,8 @@ mos_fetch <- function(id_key){
   mosTree <- fetch_tree("https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/mos_tree.tre")
   print(mosTree)
    
-  ca_climate <- "https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/mos_cma_climate.csv"
-  cp_climate <- "https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/mos_cpa_climate.csv"
-  ca.clim <- read.csv(url(ca_climate, method="libcurl"))
-  cp.clim <- read.csv(url(cp_climate, method="libcurl"))
+  climate.url <- "https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/climate_031422.csv"
+  joint.climate <- read.csv(url(climate.url, method="libcurl"))
 
   id_key <- id_key
   api_key_link <- paste("https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/MOSAIC_", id_key, ".csv", sep="")
@@ -205,8 +202,7 @@ mos_fetch <- function(id_key){
                      dispclass = dispclass,
                      volancy = volancy,
                      aquadep = aquadep,
-                     cmaClimate = ca.clim,
-                     cmpClimate = cp.clim,
+                     climate = joint.climate,
                      phyloTree = list(mosTree$edge, mosTree$edge.length, mosTree$Nnode,
                                       mosTree$node.label, mosTree$tip.label)
   )
