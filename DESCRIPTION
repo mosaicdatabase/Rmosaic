@@ -39,8 +39,6 @@ Authors@R:
 Description: MOSAIC is a unified trait database that links together existing trait databases and supports new data for population demography.
             See Bernard et al. (2022) <doi: 10.1101/2022.03.09.483599> for more information about the MOSAIC database. 
             Rmosaic is a set of tools to access and parse the database.
-Depends: 
-R (>= 3.3.0)
 Imports:
   RCurl,
   Rcompadre,
