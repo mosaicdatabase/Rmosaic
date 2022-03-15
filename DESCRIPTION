@@ -1,12 +1,54 @@
 Package: Rmosaic2.0
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: Navigation Tools for the MOSAIC Trait Database
+Version: 1.0.0
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+    c(person("Bernard", "Connor", , "connor.bernard@zoo.ox.ac.uk", role = c("aut", "cre"),
+           comment = c(ORCID = "Y0000-0003-2175-5712")),
+      person(given = "Gabriel",
+           family = "Santos",
+           email = "ssantos.gabriel@gmail.com",
+           role = "aut"),
+    person(given = "Jacques",
+           family = "Deere",
+           email = "j.a.deere@uva.nl",
+           role = "aut"),
+    person(given = "Rodriguez-Caro",
+           family = "Roberto",
+           email = "roberto.rodriguez-caro@zoo.ox.ac.uk",
+           role = "aut"),
+    person(given = "Capdevila",
+           family = "Pol",
+           email = "fg20342@bristol.ac.uk",
+           role = "aut"),
+    person(given = "Erik",
+           family = "Kusch",
+           email = "erik.kusch@bio.au.dk",
+           role = "aut"),
+    person(given = "Samuel",
+           family = "Gascoigne",
+           email = "samuel.gascoigne@zoo.ox.ac.uk",
+           role = "aut"),
+    person(given = "John",
+           family = "Jackson",
+           email = "john.jackson@zoo.ox.ac.uk",
+           role = "aut"),
+    person(given = "Rob",
+           family = "Salguero-Gomez",
+           email = "rob.salguero@zoo.ox.ac.uk",
+           role = "aut"))     
+Description: MOSAIC is a unified trait database that links together existing trait databases and supports new data for population demography.
+            See Bernard et al. (2022) <doi: 10.1101/2022.03.09.483599> for more information about the MOSAIC database. 
+            Rmosaic is a set of tools to access and parse the database.
+Depends: 
+R (>= 3.3.0)
+Imports:
+  RCurl,
+  Rcompadre,
+  ape,
+  rlang (>= 0.3.0)
+License: GPL-3
 Encoding: UTF-8
+Suggests: 
+    tidyverse
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
