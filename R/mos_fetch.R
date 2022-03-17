@@ -38,8 +38,8 @@ mosaic_base <- setClass("mosaic_base",
                           volancy = "mosaic_meta",
                           aquadep = "mosaic_meta",
                           climate = "data.frame",
-                          animalTree = "list",
-                          plantTree = "list")
+                          animalPhylo = "list",
+                          plantPhylo = "list")
   )
 
 mos_fetch <- function(id_key){
