@@ -39,8 +39,7 @@ mosaic_base <- setClass("mosaic_base",
                           volancy = "mosaic_meta",
                           aquadep = "mosaic_meta",
                           climate = "data.frame",
-                          animalPhylo = "phylo",
-                          plantPhylo = "phylo")
+                          phylogeny = "list")
   )
 
 mos_fetch <- function(id_key){
@@ -69,6 +68,8 @@ mos_fetch <- function(id_key){
            
   animalPhy.url <- "https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/animal_tree.tre"
   animalPhyType <- read.tree(url(animalPhy.url, method="libcurl"))
+           
+  phylogenies <- list(plantPhyType, animalPhyType)
            
    
   climate.url <- "https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/climate_031422.csv"
@@ -216,8 +217,7 @@ mos_fetch <- function(id_key){
                      volancy = volancy,
                      aquadep = aquadep,
                      climate = joint.climate,
-                     animalPhylo = animalPhyType,
-                     plantPhylo = plantPhyType
+                     phylogeny = phylogenies
   )
   rm.except("mosaic", pattern = "com")
   return(mosiac_main)
