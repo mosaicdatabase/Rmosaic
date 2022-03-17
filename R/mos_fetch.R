@@ -59,7 +59,7 @@ mos_fetch <- function(id_key){
            
   animalTree <- fetch_tree("https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/animal_tree.tre")
   print(animalTree)
-  plantTree <- fetch_tree("https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/animal_tree.tre")
+  plantTree <- fetch_tree("https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/plant_tree.tre")
   print(plantTree)
    
   climate.url <- "https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/climate_031422.csv"
