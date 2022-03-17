@@ -55,8 +55,11 @@ mos_fetch <- function(id_key){
 
   compadre <- cdb_fetch("compadre")
   comadre <- cdb_fetch("comadre")
-  mosTree <- fetch_tree("https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/mos_tree.tre")
-  print(mosTree)
+           
+  animalTree <- fetch_tree("https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/animal_tree.tre")
+  print(animalTree)
+  plantTree <- fetch_tree("https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/animal_tree.tre")
+  print(plantTree)
    
   climate.url <- "https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/climate_031422.csv"
   joint.climate <- read.csv(url(climate.url, method="libcurl"))
@@ -203,8 +206,10 @@ mos_fetch <- function(id_key){
                      volancy = volancy,
                      aquadep = aquadep,
                      climate = joint.climate,
-                     phyloTree = list(mosTree$edge, mosTree$edge.length, mosTree$Nnode,
-                                      mosTree$node.label, mosTree$tip.label)
+                     animalPhylo = list(animalTree$edge, animalTree$edge.length, animalTree$Nnode,
+                                      animalTree$node.label, animalTree$tip.label),
+                     plantPhylo = list(plantTree$edge, plantTree$edge.length, plantTree$Nnode,
+                                       plantTree$node.label, plantTree$tip.label)
   )
   rm.except("mosaic", pattern = "com")
   return(mosiac_main)
