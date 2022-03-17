@@ -6,6 +6,7 @@
 #' @export
 #' @examples
 #' mos_fetch("v1.0.0")
+library(ape)
 
 mosaic_meta <- setClass("mosaic_meta",
            representation(value = "character",
@@ -38,8 +39,8 @@ mosaic_base <- setClass("mosaic_base",
                           volancy = "mosaic_meta",
                           aquadep = "mosaic_meta",
                           climate = "data.frame",
-                          animalPhylo = "list",
-                          plantPhylo = "list")
+                          animalPhylo = "phylo",
+                          plantPhylo = "phylo")
   )
 
 mos_fetch <- function(id_key){
