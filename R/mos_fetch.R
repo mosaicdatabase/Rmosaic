@@ -8,11 +8,6 @@
 #' mos_fetch("v1.0.0")
 library(ape)
 
-read_url <- function(url, ...) {
-  on.exit(close(url))
-  readLines(url, ...)
-}
-
 mosaic_meta <- setClass("mosaic_meta",
            representation(value = "character",
                           author = "character",
