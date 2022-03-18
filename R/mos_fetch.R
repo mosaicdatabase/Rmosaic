@@ -60,12 +60,10 @@ mos_fetch <- function(id_key){
   plantPhy.url <- "https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/plant_tree.txt"
   plantPhyType <- ape::read.tree(file=url(plantPhy.url, method="libcurl"))
   close(url(plantPhy.url, method="libcurl"))
-  close(plantPhy.url)
            
   animalPhy.url <- "https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/animal_tree.txt"
   animalPhyType <- ape::read.tree(file=url(animalPhy.url, method="libcurl"))
   close(url(plantPhy.url, method="libcurl"))
-  close(plantPhy.url)
            
   phylogenies <- list(plantPhyType, animalPhyType)
            
