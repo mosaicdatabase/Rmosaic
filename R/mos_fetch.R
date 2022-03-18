@@ -61,13 +61,12 @@ mos_fetch <- function(id_key){
   #print(animalTree)
   # plantTree <- fetch_tree("https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/plant_tree.tre")
   #print(plantTree)
-          
+  
+  plantPhy.url <- "https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/plant_tree.txt"
+  plantPhyType <- ape::read.tree(file=url(plantPhy.url, method="libcurl"))
            
-  plantPhy.url <- "https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/plant_tree.tre"
-  plantPhyType <- read.tree(url(plantPhy.url, method="libcurl"))
-           
-  animalPhy.url <- "https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/animal_tree.tre"
-  animalPhyType <- read.tree(url(animalPhy.url, method="libcurl"))
+  animalPhy.url <- "https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/animal_tree.txt"
+  animalPhyType <- ape::read.tree(file=url(animalPhy.url, method="libcurl"))
            
   phylogenies <- list(plantPhyType, animalPhyType)
            
