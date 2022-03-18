@@ -58,10 +58,14 @@ mos_fetch <- function(id_key){
   comadre <- cdb_fetch("comadre")
   
   plantPhy.url <- "https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/plant_tree.txt"
-  plantPhyType <- ape::read.tree(file=url(plantPhy.url, method="libcurl"))
+  plantPhyLink <- url(plantPhy.url, method="libcurl")
+  plantPhyType <- ape::read.tree(file=plantPhyLink)
+  close(plantPhyLink)
            
   animalPhy.url <- "https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/animal_tree.txt"
-  animalPhyType <- ape::read.tree(file=url(animalPhy.url, method="libcurl"))
+  animalPhyLink <- url(animalPhy.url, method="libcurl")
+  animalPhyType <- ape::read.tree(file=animalPhyLink)
+  close(animalPhyLink)
            
   phylogenies <- list(plantPhyType, animalPhyType)
    
@@ -213,6 +217,5 @@ mos_fetch <- function(id_key){
                      phylogeny = phylogenies
   )
   rm.except("mosaic", pattern = "com")
-  closeAllConnections()
   return(mosiac_main)
 }
