@@ -60,7 +60,6 @@ mos_fetch <- function(id_key){
   plantPhy.url <- "https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/plant_tree.txt"
   plantPhyLink <- url(plantPhy.url, method="libcurl")
   plantPhyType <- ape::read.tree(file=plantPhyLink)
-  print("vLink")
   close(plantPhyLink)
            
   animalPhy.url <- "https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/animal_tree.txt"
@@ -69,6 +68,7 @@ mos_fetch <- function(id_key){
   close(animalPhyLink)
            
   phylogenies <- list(plantPhyType, animalPhyType)
+  names(phylogenies) <- c("plantPhylogeny", "animalPhylogeny")
    
   climate.url <- "https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/climate_031422.csv"
   joint.climate <- read.csv(url(climate.url, method="libcurl"))
