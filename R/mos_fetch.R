@@ -60,6 +60,7 @@ mos_fetch <- function(id_key){
   plantPhy.url <- "https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/plant_tree.txt"
   plantPhyLink <- url(plantPhy.url, method="libcurl")
   plantPhyType <- ape::read.tree(file=plantPhyLink)
+  print("vLink")
   close(plantPhyLink)
            
   animalPhy.url <- "https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/animal_tree.txt"
