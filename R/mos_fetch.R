@@ -8,6 +8,11 @@
 #' mos_fetch("v1.0.0")
 library(ape)
 
+read_url <- function(url, ...) {
+  on.exit(close(url))
+  readLines(url, ...)
+}
+
 mosaic_meta <- setClass("mosaic_meta",
            representation(value = "character",
                           author = "character",
@@ -58,15 +63,12 @@ mos_fetch <- function(id_key){
   comadre <- cdb_fetch("comadre")
   
   plantPhy.url <- "https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/plant_tree.txt"
-  plantPhyType <- ape::read.tree(file=url(plantPhy.url, method="libcurl"))
-  close(url(plantPhy.url, method="libcurl"))
+  plantPhyType <- ape::read.tree(file=read_url(plantPhy.url, method="libcurl"))
            
   animalPhy.url <- "https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/animal_tree.txt"
-  animalPhyType <- ape::read.tree(file=url(animalPhy.url, method="libcurl"))
-  close(url(plantPhy.url, method="libcurl"))
+  animalPhyType <- ape::read.tree(file=read_url(animalPhy.url, method="libcurl"))
            
   phylogenies <- list(plantPhyType, animalPhyType)
-           
    
   climate.url <- "https://raw.githubusercontent.com/mosaicdatabase/mosaicdatabase/main/climate_031422.csv"
   joint.climate <- read.csv(url(climate.url, method="libcurl"))
